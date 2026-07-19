@@ -1,0 +1,91 @@
+{
+  "timestamp": "2026-03-28T18:04:26.942644",
+  "n_images": 1,
+  "bootstrap": {
+    "n_samples": 2000,
+    "ci_level": 95
+  },
+  "config": {
+    "model_name": "efficientnet_b3",
+    "image_size": 384,
+    "n_features": 1536,
+    "n_folds": 5,
+    "tta_times": 8,
+    "ben_graham_sigma": 30,
+    "clahe_clip_limit": 2.0,
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "output_dir": "predics/v2_output",
+    "max_batch_size": 50
+  },
+  "thresholds": {
+    "ensemble": 0.3597,
+    "twophase": 0.1085
+  },
+  "results": [
+    {
+      "image": "idrid_IDRiD_0195.jpg",
+      "ensemble_prob": 0.986295485496521,
+      "ensemble_ci_95": [
+        0.9840670645236969,
+        0.9886171147227287
+      ],
+      "ensemble_pred": "DR Detected",
+      "twophase_prob": 0.9999359250068665,
+      "twophase_ci_95": [
+        0.9999032616615295,
+        0.9999673441052437
+      ],
+      "twophase_pred": "DR Detected",
+      "agreement": true,
+      "multiclass_grade": 2,
+      "multiclass_grade_name": "Moderate NPDR",
+      "multiclass_confidence": 0.6906256079673767,
+      "multiclass_probs": [
+        0.013389904983341694,
+        0.0648471862077713,
+        0.6906256079673767,
+        0.19464805722236633,
+        0.03648927062749863
+      ],
+      "multiclass_ci_95": {
+        "0": {
+          "mean": 0.013389904983341694,
+          "ci_lower": 0.009058318729512394,
+          "ci_upper": 0.018259754916653034
+        },
+        "1": {
+          "mean": 0.0648471862077713,
+          "ci_lower": 0.05271384101361036,
+          "ci_upper": 0.07627717126160859
+        },
+        "2": {
+          "mean": 0.6906256079673767,
+          "ci_lower": 0.5996676281094551,
+          "ci_upper": 0.7907600730657577
+        },
+        "3": {
+          "mean": 0.19464805722236633,
+          "ci_lower": 0.10366195440292358,
+          "ci_upper": 0.2796661801636219
+        },
+        "4": {
+          "mean": 0.03648927062749863,
+          "ci_lower": 0.018993303598836064,
+          "ci_upper": 0.060295838955789806
+        }
+      },
+      "severity": "Moderate",
+      "action": "Refer to ophthalmologist within 3-6 months",
+      "inference_ms": 2825.8
+    }
+  ]
+}

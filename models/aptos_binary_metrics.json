@@ -1,0 +1,23 @@
+{
+  "dataset": "APTOS 2019",
+  "task": "binary",
+  "model": "efficientnet_b3",
+  "test_size": 531,
+  "optimal_threshold": 0.4706455171108246,
+  "auc_roc": 0.9991627642968639,
+  "auc_roc_ci_lower": 0.9979143936498933,
+  "auc_roc_ci_upper": 0.9999716049854158,
+  "auc_pr": 0.9991555827963398,
+  "accuracy": 0.9905838041431262,
+  "sensitivity": 0.9923371647509579,
+  "specificity": 0.9888888888888889,
+  "precision": 0.9885496183206107,
+  "npv": 0.9925650557620818,
+  "f1_score": 0.9904397705544933,
+  "cohen_kappa": 0.9811633995274887,
+  "mcc": 0.981170362280835,
+  "high_sensitivity_threshold": 1.4636432343895223e-10,
+  "high_sensitivity_specificity": 0.0,
+  "high_specificity_threshold": Infinity,
+  "high_specificity_sensitivity": 0.0
+}

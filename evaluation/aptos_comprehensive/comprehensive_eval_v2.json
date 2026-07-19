@@ -1,0 +1,428 @@
+{
+  "dataset": "APTOS 2019 (test split only)",
+  "task": "binary_classification + ordinal_grading",
+  "model": "efficientnet_b3",
+  "image_size": 384,
+  "n_folds": 5,
+  "tta_times": 8,
+  "test_size": 531,
+  "prevalence": 0.4915254237288136,
+  "optimal_threshold_twophase": 0.10850069,
+  "optimal_threshold_ensemble": 0.35971677,
+  "ordinal_grading": {
+    "ensemble_tta": {
+      "thresholds": {
+        "t1": 0.3796,
+        "t2": 0.812,
+        "t3": 0.9858,
+        "t4": 0.999
+      },
+      "qwk": 0.8456,
+      "accuracy_5class": 0.7175
+    },
+    "twophase_tta": {
+      "thresholds": {
+        "t1": 0.3107,
+        "t2": 0.7579,
+        "t3": 0.9954,
+        "t4": 0.999
+      },
+      "qwk": 0.7147,
+      "accuracy_5class": 0.597
+    }
+  },
+  "evaluation_levels": {
+    "2-Phase (no TTA)": {
+      "Threshold": 0.5,
+      "AUC-ROC": 0.9991627642968639,
+      "Accuracy": 0.9887005649717514,
+      "Balanced Acc": 0.9886973180076628,
+      "Sensitivity": 0.9885057471264368,
+      "Specificity": 0.9888888888888889,
+      "Precision": 0.9885057471264368,
+      "NPV": 0.9888888888888889,
+      "F1-Score": 0.9885057471264368,
+      "Cohen Kappa": 0.9773946360153256,
+      "MCC": 0.9773946360153257,
+      "Brier Score": 0.00933772864306377,
+      "Log Loss": 0.03589549506152482,
+      "TP": 258,
+      "TN": 267,
+      "FP": 3,
+      "FN": 3,
+      "AUC-PR": 0.9991555827963398
+    },
+    "2-Phase + TTA": {
+      "Threshold": 0.5,
+      "AUC-ROC": 0.9992337164750958,
+      "Accuracy": 0.9868173258003766,
+      "Balanced Acc": 0.986845466155811,
+      "Sensitivity": 0.9885057471264368,
+      "Specificity": 0.9851851851851852,
+      "Precision": 0.9847328244274809,
+      "NPV": 0.9888475836431226,
+      "F1-Score": 0.9866156787762906,
+      "Cohen Kappa": 0.9736287593384841,
+      "MCC": 0.9736356686228147,
+      "Brier Score": 0.009150582022739847,
+      "Log Loss": 0.03412894940964556,
+      "TP": 258,
+      "TN": 266,
+      "FP": 4,
+      "FN": 3,
+      "AUC-PR": 0.999255094100757,
+      "AUC-ROC CI": {
+        "lower": 0.9980068214934192,
+        "upper": 0.9999570493886563
+      },
+      "Accuracy CI": {
+        "lower": 0.9774011299435028,
+        "upper": 0.9962335216572504
+      },
+      "Sensitivity CI": {
+        "lower": 0.9740740740740741,
+        "upper": 1.0
+      },
+      "Specificity CI": {
+        "lower": 0.9692294520547945,
+        "upper": 0.9964664310954063
+      },
+      "F1 CI": {
+        "lower": 0.976283320447139,
+        "upper": 0.9959843373493975
+      }
+    },
+    "2-Phase + TTA + OptThr": {
+      "Threshold": 0.10850069,
+      "AUC-ROC": 0.9992337164750958,
+      "Accuracy": 0.9887005649717514,
+      "Balanced Acc": 0.9888250319284801,
+      "Sensitivity": 0.9961685823754789,
+      "Specificity": 0.9814814814814815,
+      "Precision": 0.9811320754716981,
+      "NPV": 0.9962406015037594,
+      "F1-Score": 0.9885931558935361,
+      "Cohen Kappa": 0.9774004085801838,
+      "MCC": 0.9775113605770034,
+      "Brier Score": 0.009150582022739847,
+      "Log Loss": 0.03412894940964556,
+      "TP": 260,
+      "TN": 265,
+      "FP": 5,
+      "FN": 1,
+      "AUC-PR": 0.999255094100757,
+      "AUC-ROC CI": {
+        "lower": 0.9980068214934192,
+        "upper": 0.9999570493886563
+      },
+      "Accuracy CI": {
+        "lower": 0.9792843691148776,
+        "upper": 0.9962335216572504
+      },
+      "Sensitivity CI": {
+        "lower": 0.9879032258064516,
+        "upper": 1.0
+      },
+      "Specificity CI": {
+        "lower": 0.9644268774703557,
+        "upper": 0.996309963099631
+      },
+      "F1 CI": {
+        "lower": 0.9788053949903661,
+        "upper": 0.996415770609319
+      }
+    },
+    "Fold 1": {
+      "Threshold": 0.5,
+      "AUC-ROC": 0.9978572442173974,
+      "Accuracy": 0.9887005649717514,
+      "Balanced Acc": 0.9886973180076628,
+      "Sensitivity": 0.9885057471264368,
+      "Specificity": 0.9888888888888889,
+      "Precision": 0.9885057471264368,
+      "NPV": 0.9888888888888889,
+      "F1-Score": 0.9885057471264368,
+      "Cohen Kappa": 0.9773946360153256,
+      "MCC": 0.9773946360153257,
+      "Brier Score": 0.009931392018158238,
+      "Log Loss": 0.04310439644994044,
+      "TP": 258,
+      "TN": 267,
+      "FP": 3,
+      "FN": 3,
+      "AUC-PR": 0.9984554632985977
+    },
+    "Fold 2": {
+      "Threshold": 0.5,
+      "AUC-ROC": 0.9978714346530438,
+      "Accuracy": 0.9792843691148776,
+      "Balanced Acc": 0.9791187739463602,
+      "Sensitivity": 0.9693486590038314,
+      "Specificity": 0.9888888888888889,
+      "Precision": 0.98828125,
+      "NPV": 0.9709090909090909,
+      "F1-Score": 0.9787234042553191,
+      "Cohen Kappa": 0.9585435962951134,
+      "MCC": 0.9587138260373164,
+      "Brier Score": 0.01336712331095449,
+      "Log Loss": 0.06004987441802355,
+      "TP": 253,
+      "TN": 267,
+      "FP": 3,
+      "FN": 8,
+      "AUC-PR": 0.99766572164557
+    },
+    "Fold 3": {
+      "Threshold": 0.5,
+      "AUC-ROC": 0.9993330495246204,
+      "Accuracy": 0.9849340866290018,
+      "Balanced Acc": 0.9848020434227331,
+      "Sensitivity": 0.9770114942528736,
+      "Specificity": 0.9925925925925926,
+      "Precision": 0.9922178988326849,
+      "NPV": 0.9781021897810219,
+      "F1-Score": 0.9845559845559846,
+      "Cohen Kappa": 0.9698518140010219,
+      "MCC": 0.969962021662758,
+      "Brier Score": 0.010721762176156538,
+      "Log Loss": 0.04488138619122596,
+      "TP": 255,
+      "TN": 268,
+      "FP": 2,
+      "FN": 6,
+      "AUC-PR": 0.9993077423231107
+    },
+    "Fold 4": {
+      "Threshold": 0.5,
+      "AUC-ROC": 0.9989640981978147,
+      "Accuracy": 0.9849340866290018,
+      "Balanced Acc": 0.9849936143039592,
+      "Sensitivity": 0.9885057471264368,
+      "Specificity": 0.9814814814814815,
+      "Precision": 0.9809885931558935,
+      "NPV": 0.9888059701492538,
+      "F1-Score": 0.9847328244274809,
+      "Cohen Kappa": 0.9698633635551015,
+      "MCC": 0.9698908911724999,
+      "Brier Score": 0.011256876481011533,
+      "Log Loss": 0.059948460366975376,
+      "TP": 258,
+      "TN": 265,
+      "FP": 5,
+      "FN": 3,
+      "AUC-PR": 0.9989335663036762
+    },
+    "Fold 5": {
+      "Threshold": 0.5,
+      "AUC-ROC": 0.998141052930325,
+      "Accuracy": 0.9849340866290018,
+      "Balanced Acc": 0.9849297573435505,
+      "Sensitivity": 0.9846743295019157,
+      "Specificity": 0.9851851851851852,
+      "Precision": 0.9846743295019157,
+      "NPV": 0.9851851851851852,
+      "F1-Score": 0.9846743295019157,
+      "Cohen Kappa": 0.9698595146871009,
+      "MCC": 0.9698595146871009,
+      "Brier Score": 0.012924877067273443,
+      "Log Loss": 0.06539111444915924,
+      "TP": 257,
+      "TN": 266,
+      "FP": 4,
+      "FN": 4,
+      "AUC-PR": 0.998235842849693
+    },
+    "Ensemble (no TTA)": {
+      "Threshold": 0.5,
+      "AUC-ROC": 0.9992337164750957,
+      "Accuracy": 0.9887005649717514,
+      "Balanced Acc": 0.9886973180076628,
+      "Sensitivity": 0.9885057471264368,
+      "Specificity": 0.9888888888888889,
+      "Precision": 0.9885057471264368,
+      "NPV": 0.9888888888888889,
+      "F1-Score": 0.9885057471264368,
+      "Cohen Kappa": 0.9773946360153256,
+      "MCC": 0.9773946360153257,
+      "Brier Score": 0.009579836337812423,
+      "Log Loss": 0.04813071714325958,
+      "TP": 258,
+      "TN": 267,
+      "FP": 3,
+      "FN": 3,
+      "AUC-PR": 0.9992052390932572,
+      "AUC-ROC CI": {
+        "lower": 0.9980970517658484,
+        "upper": 0.9999004389925943
+      },
+      "Accuracy CI": {
+        "lower": 0.9792843691148776,
+        "upper": 0.9962335216572504
+      },
+      "Sensitivity CI": {
+        "lower": 0.9733814907264969,
+        "upper": 1.0
+      },
+      "Specificity CI": {
+        "lower": 0.9743589743589743,
+        "upper": 1.0
+      },
+      "F1 CI": {
+        "lower": 0.9784467939164013,
+        "upper": 0.9962962962962963
+      }
+    },
+    "Ensemble + TTA": {
+      "Threshold": 0.5,
+      "AUC-ROC": 0.9992337164750958,
+      "Accuracy": 0.9868173258003766,
+      "Balanced Acc": 0.9867816091954023,
+      "Sensitivity": 0.9846743295019157,
+      "Specificity": 0.9888888888888889,
+      "Precision": 0.9884615384615385,
+      "NPV": 0.985239852398524,
+      "F1-Score": 0.9865642994241842,
+      "Cohen Kappa": 0.97362539114886,
+      "MCC": 0.9736323021743502,
+      "Brier Score": 0.009140024239474449,
+      "Log Loss": 0.0469816876077561,
+      "TP": 257,
+      "TN": 267,
+      "FP": 3,
+      "FN": 4,
+      "AUC-PR": 0.9992270985614269,
+      "AUC-ROC CI": {
+        "lower": 0.9981113767692668,
+        "upper": 0.9999010370392836
+      },
+      "Accuracy CI": {
+        "lower": 0.975517890772128,
+        "upper": 0.9962335216572504
+      },
+      "Sensitivity CI": {
+        "lower": 0.9666666666666667,
+        "upper": 0.9963898916967509
+      },
+      "Specificity CI": {
+        "lower": 0.9743589743589743,
+        "upper": 1.0
+      },
+      "F1 CI": {
+        "lower": 0.9749963733075435,
+        "upper": 0.9959357789142408
+      }
+    },
+    "Ensemble + TTA + OptThr": {
+      "Threshold": 0.35971677,
+      "AUC-ROC": 0.9992337164750958,
+      "Accuracy": 0.9905838041431262,
+      "Balanced Acc": 0.990676883780332,
+      "Sensitivity": 0.9961685823754789,
+      "Specificity": 0.9851851851851852,
+      "Precision": 0.9848484848484849,
+      "NPV": 0.9962546816479401,
+      "F1-Score": 0.9904761904761905,
+      "Cohen Kappa": 0.9811658047628168,
+      "MCC": 0.9812284590282551,
+      "Brier Score": 0.009140024239474449,
+      "Log Loss": 0.0469816876077561,
+      "TP": 260,
+      "TN": 266,
+      "FP": 4,
+      "FN": 1,
+      "AUC-PR": 0.9992270985614269,
+      "AUC-ROC CI": {
+        "lower": 0.9981113767692668,
+        "upper": 0.9999010370392836
+      },
+      "Accuracy CI": {
+        "lower": 0.9811676082862524,
+        "upper": 0.9981167608286252
+      },
+      "Sensitivity CI": {
+        "lower": 0.9878036336485814,
+        "upper": 1.0
+      },
+      "Specificity CI": {
+        "lower": 0.969811320754717,
+        "upper": 0.9964664310954063
+      },
+      "F1 CI": {
+        "lower": 0.9814425324799755,
+        "upper": 0.9980879541108987
+      }
+    }
+  },
+  "subgroup_analysis": {
+    "by_grade": [
+      {
+        "grade": "0",
+        "name": "No DR",
+        "n": 270,
+        "binary": 0,
+        "tp_mean_prob": 0.013888516952310635,
+        "tp_acc": 0.9814814814814815,
+        "tp_errors": 5,
+        "ens_mean_prob": 0.030197598707407413,
+        "ens_acc": 0.9851851851851852,
+        "ens_errors": 4
+      },
+      {
+        "grade": "1",
+        "name": "Mild",
+        "n": 58,
+        "binary": 1,
+        "tp_mean_prob": 0.9325465000068965,
+        "tp_acc": 0.9827586206896551,
+        "tp_errors": 1,
+        "ens_mean_prob": 0.9215429515517242,
+        "ens_acc": 0.9827586206896551,
+        "ens_errors": 1
+      },
+      {
+        "grade": "2",
+        "name": "Moderate",
+        "n": 144,
+        "binary": 1,
+        "tp_mean_prob": 0.9901701854861111,
+        "tp_acc": 1.0,
+        "tp_errors": 0,
+        "ens_mean_prob": 0.97324219375,
+        "ens_acc": 1.0,
+        "ens_errors": 0
+      },
+      {
+        "grade": "3",
+        "name": "Severe",
+        "n": 22,
+        "binary": 1,
+        "tp_mean_prob": 0.9997202654545455,
+        "tp_acc": 1.0,
+        "tp_errors": 0,
+        "ens_mean_prob": 0.9851575640909093,
+        "ens_acc": 1.0,
+        "ens_errors": 0
+      },
+      {
+        "grade": "4",
+        "name": "Proliferative",
+        "n": 37,
+        "binary": 1,
+        "tp_mean_prob": 0.998131085135135,
+        "tp_acc": 1.0,
+        "tp_errors": 0,
+        "ens_mean_prob": 0.9628197391891892,
+        "ens_acc": 1.0,
+        "ens_errors": 0
+      }
+    ]
+  },
+  "agreement_analysis": {
+    "Both Correct": 524,
+    "Both Wrong (agree)": 4,
+    "Only 2-Phase Correct": 1,
+    "Only Ensemble Correct": 2,
+    "Both Wrong (disagree)": 0
+  },
+  "bootstrap_n": 2000
+}

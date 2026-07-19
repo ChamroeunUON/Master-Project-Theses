@@ -1,0 +1,196 @@
+{
+  "dataset": "IDRiD (Indian Diabetic Retinopathy Image Dataset)",
+  "task": "binary_classification + multiclass_grading",
+  "model": "efficientnet_b3",
+  "image_size": 384,
+  "normalization": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "binary_output": "sigmoid (1 logit)",
+  "multiclass_output": "softmax (5 logits)",
+  "test_size": 306,
+  "train_size": 1224,
+  "prevalence": 0.6666666666666666,
+  "binary_metrics": {
+    "default_threshold": {
+      "threshold": 0.5,
+      "Threshold": 0.5,
+      "AUC-ROC": 0.8960495963091119,
+      "AUC-PR": 0.9539891963752981,
+      "Accuracy": 0.7320261437908496,
+      "Balanced Accuracy": 0.6200980392156863,
+      "Sensitivity (Recall)": 0.9558823529411765,
+      "Specificity": 0.28431372549019607,
+      "Precision (PPV)": 0.7276119402985075,
+      "NPV": 0.7631578947368421,
+      "F1-Score": 0.826271186440678,
+      "Cohen Kappa": 0.2848837209302325,
+      "MCC": 0.34333801098611644,
+      "Brier Score": 0.2087766682760934,
+      "Log Loss": 0.7678325981413557,
+      "TP": 195.0,
+      "TN": 29.0,
+      "FP": 73.0,
+      "FN": 9.0
+    },
+    "aptos_optimal_threshold": {
+      "threshold": 0.4706,
+      "Threshold": 0.4706,
+      "AUC-ROC": 0.8960495963091119,
+      "AUC-PR": 0.9539891963752981,
+      "Accuracy": 0.7287581699346405,
+      "Balanced Accuracy": 0.6151960784313726,
+      "Sensitivity (Recall)": 0.9558823529411765,
+      "Specificity": 0.27450980392156865,
+      "Precision (PPV)": 0.724907063197026,
+      "NPV": 0.7567567567567568,
+      "F1-Score": 0.8245243128964059,
+      "Cohen Kappa": 0.2740524781341108,
+      "MCC": 0.3331239504477289,
+      "Brier Score": 0.2087766682760934,
+      "Log Loss": 0.7678325981413557,
+      "TP": 195.0,
+      "TN": 28.0,
+      "FP": 74.0,
+      "FN": 9.0
+    },
+    "idrid_optimal_threshold": {
+      "threshold": 0.9967312812805176,
+      "Threshold": 0.9967312812805176,
+      "AUC-ROC": 0.8960495963091119,
+      "AUC-PR": 0.9539891963752981,
+      "Accuracy": 0.8169934640522876,
+      "Balanced Accuracy": 0.8553921568627452,
+      "Sensitivity (Recall)": 0.7401960784313726,
+      "Specificity": 0.9705882352941176,
+      "Precision (PPV)": 0.9805194805194806,
+      "NPV": 0.6513157894736842,
+      "F1-Score": 0.8435754189944135,
+      "Cohen Kappa": 0.6331877729257642,
+      "MCC": 0.6701481916484229,
+      "Brier Score": 0.2087766682760934,
+      "Log Loss": 0.7678325981413557,
+      "TP": 151.0,
+      "TN": 99.0,
+      "FP": 3.0,
+      "FN": 53.0
+    }
+  },
+  "multiclass_metrics": {
+    "qwk": 0.8796920575718452,
+    "accuracy_5class": 0.8202614379084967,
+    "balanced_accuracy": 0.8333412937824702,
+    "macro_f1": 0.7964716147772611,
+    "weighted_f1": 0.8215551685288834
+  },
+  "bootstrap_ci": [
+    {
+      "Metric": "AUC-ROC",
+      "Mean": 0.8956601071730722,
+      "95% CI Lower": 0.8598402385211893,
+      "95% CI Upper": 0.9279237196294444,
+      "CI Width": 0.06808348110825513
+    },
+    {
+      "Metric": "Accuracy",
+      "Mean": 0.7321797385620914,
+      "95% CI Lower": 0.6829248366013073,
+      "95% CI Upper": 0.7810457516339869,
+      "CI Width": 0.09812091503267961
+    },
+    {
+      "Metric": "Sensitivity",
+      "Mean": 0.9560532977782232,
+      "95% CI Lower": 0.9270833333333334,
+      "95% CI Upper": 0.981877990430622,
+      "CI Width": 0.05479465709728859
+    },
+    {
+      "Metric": "Specificity",
+      "Mean": 0.28364616429577955,
+      "95% CI Lower": 0.19562198067632855,
+      "95% CI Upper": 0.36843382728666324,
+      "CI Width": 0.1728118466103347
+    },
+    {
+      "Metric": "F1-Score",
+      "Mean": 0.8261405440943475,
+      "95% CI Lower": 0.7880053208746999,
+      "95% CI Upper": 0.8629856850715747,
+      "CI Width": 0.07498036419687482
+    },
+    {
+      "Metric": "Cohen Kappa",
+      "Mean": 0.2836137572723778,
+      "95% CI Lower": 0.17668893556980161,
+      "95% CI Upper": 0.3879886477492472,
+      "CI Width": 0.21129971217944557
+    }
+  ],
+  "subgroup_analysis": [
+    {
+      "Grade": "0",
+      "Name": "No DR",
+      "N": 102,
+      "Binary Label": "0",
+      "Mean Prob(DR)": 0.6752449828473961,
+      "Std Prob(DR)": 0.3281898955299387,
+      "Binary Acc": 0.28431372549019607,
+      "Multi Acc": 0.803921568627451,
+      "Multi Mean Conf": 0.5337194703957614
+    },
+    {
+      "Grade": "1",
+      "Name": "Mild",
+      "N": 15,
+      "Binary Label": "1",
+      "Mean Prob(DR)": 0.7970044990380605,
+      "Std Prob(DR)": 0.25499124923321526,
+      "Binary Acc": 0.8,
+      "Multi Acc": 0.7333333333333333,
+      "Multi Mean Conf": 0.4900103410085042
+    },
+    {
+      "Grade": "2",
+      "Name": "Moderate",
+      "N": 96,
+      "Binary Label": "1",
+      "Mean Prob(DR)": 0.9389278628611161,
+      "Std Prob(DR)": 0.19238029493573988,
+      "Binary Acc": 0.9583333333333334,
+      "Multi Acc": 0.7291666666666666,
+      "Multi Mean Conf": 0.5845523259292046
+    },
+    {
+      "Grade": "3",
+      "Name": "Severe",
+      "N": 54,
+      "Binary Label": "1",
+      "Mean Prob(DR)": 0.9780735505951775,
+      "Std Prob(DR)": 0.09658048294237893,
+      "Binary Acc": 0.9814814814814815,
+      "Multi Acc": 0.9259259259259259,
+      "Multi Mean Conf": 0.7242042317434594
+    },
+    {
+      "Grade": "4",
+      "Name": "Proliferative DR",
+      "N": 39,
+      "Binary Label": "1",
+      "Mean Prob(DR)": 0.9680115817449032,
+      "Std Prob(DR)": 0.11886923331544563,
+      "Binary Acc": 0.9743589743589743,
+      "Multi Acc": 0.9743589743589743,
+      "Multi Mean Conf": 0.8137722252271115
+    }
+  ]
+}

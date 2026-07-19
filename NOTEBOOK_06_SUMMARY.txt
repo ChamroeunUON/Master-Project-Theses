@@ -1,0 +1,206 @@
+================================================================================
+NOTEBOOK 06: Comprehensive K-Fold Ensemble Evaluation
+================================================================================
+
+FILE LOCATION:
+/sessions/nice-beautiful-curie/mnt/DrMulti_Binary/Notebook_06_Comprehensive_KFold_Evaluation.ipynb
+
+NOTEBOOK SPECIFICATIONS:
+- Format: nbformat v4.5
+- Total cells: 30
+- Code cells: 13
+- Markdown cells: 17
+- File size: 63 KB
+
+COMPREHENSIVE EVALUATION FRAMEWORK (4 Levels):
+================================================================================
+
+LEVEL A: Individual Fold Predictions (No TTA)
+  - Each of 5 fold models predicts on test set independently
+  - No augmentation applied
+  - Baseline for ensemble performance
+
+LEVEL B: 5-Fold Ensemble (No TTA)
+  - Average probabilities from 5 fold models
+  - No augmentation
+  - Soft ensemble baseline
+
+LEVEL C: 5-Fold Ensemble + 8× TTA
+  - Each fold uses 8× Test-Time Augmentation
+  - Applies: horizontal flip, vertical flip, random 90° rotations
+  - Average across all TTA passes and all folds
+  - State-of-art ensemble approach
+
+LEVEL D: 5-Fold Ensemble + TTA + Optimized Threshold
+  - Same as Level C
+  - Threshold optimized using Youden's J metric
+  - Clinically-relevant operating point
+
+COMPREHENSIVE EVALUATION SECTIONS:
+================================================================================
+
+Section 1: Configuration & Imports (Cell 2)
+  - PyTorch, timm, albumentations, scikit-learn setup
+  - Model architecture definition: DRBinaryModel with EfficientNet-B3 backbone
+  - Dataset class for loading preprocessed images
+  - Configuration: image_size=384, batch_size=16, n_folds=5, tta_times=8
+
+Section 2: Model Loading (Cells 4-6)
+  - Load all 5 fold checkpoints from: models/kfold/best_efficientnet_b3_fold{1-5}.pth
+  - Verify test set (1,021 images) from APTOS 2019 + IDRiD + Messidor-2
+  - Display fold validation AUC scores
+
+Section 3: Test Set Inference (Cell 8)
+  - Level A: Individual fold predictions (no TTA) - 5 models × 1 pass
+  - Level B: Soft ensemble of Level A probabilities
+  - Level C: Individual fold predictions with 8× TTA - 5 models × 8 passes
+  - Level D: Apply Youden's J optimized threshold to Level C
+
+Section 4: Comprehensive Metrics + Bootstrap 95% CIs (Cell 10)
+  - 15 metrics per level: AUC-ROC, AUC-PR, Accuracy, Balanced Accuracy,
+    Sensitivity, Specificity, Precision, NPV, F1-Score, Cohen Kappa, MCC,
+    Brier Score, Log Loss, TP/TN/FP/FN counts
+  - Bootstrap confidence intervals (2,000 samples) for ensemble methods
+  - Comparison table with all 8 evaluation levels
+
+Section 5: ROC Curves with Clinical Operating Points (Cell 12)
+  - Panel A: Individual folds + ensemble methods
+  - Panel B: Ensemble+TTA with:
+    * Optimal threshold (Youden's J)
+    * High-sensitivity operating point (≥0.95)
+    * High-specificity operating point (≥0.95)
+
+Section 6: Precision-Recall Curves (Cell 14)
+  - All fold models and ensemble methods
+  - Disease prevalence baseline
+  - F1 iso-curves for reference
+
+Section 7: Confusion Matrices (Cell 16)
+  - 6 matrices covering:
+    * Ensemble+TTA at t=0.5
+    * Ensemble+TTA at optimal threshold
+    * High-sensitivity and high-specificity operating points
+    * Ensemble (no TTA) for comparison
+  - Counts and percentages
+
+Section 8: Threshold Sensitivity Analysis (Cell 18)
+  - Sweep across 200 thresholds (0.01-0.99)
+  - Metrics vs threshold: sensitivity, specificity, precision, NPV, F1, accuracy
+  - Youden's J analysis
+  - Optimal vs default threshold visualization
+
+Section 9: Calibration Analysis (Cell 20)
+  - Reliability diagram (Ensemble no TTA vs Ensemble+TTA)
+  - Prediction score distribution with optimal threshold marked
+  - Brier score comparison across all 8 levels
+
+Section 10: Subgroup Analysis (Cell 22)
+  - By DR Grade (0=No DR, 1=Mild, 2=Moderate, 3=Severe, 4=Proliferative):
+    * Sample counts, predicted probabilities, accuracy, errors
+  - By Dataset Source (APTOS 2019, IDRiD, Messidor-2):
+    * Sample counts, accuracy, predicted probabilities, errors
+  - Boxplots, bar charts for both subgroups
+
+Section 11: Error Analysis (Cell 24)
+  - Misclassified cases sorted by confidence
+  - FP (False Positive) analysis: No DR predicted as DR
+  - FN (False Negative) analysis: DR predicted as No DR
+  - Error breakdown by DR grade and dataset source
+  - Visual grid showing misclassified images with predictions
+
+Section 12: Summary Dashboard (Cells 26-28)
+  - 12-panel comprehensive dashboard showing:
+    * ROC curve comparison (Ensemble vs Ensemble+TTA)
+    * PR curve
+    * Best confusion matrix
+    * Calibration curve
+    * Score distribution histogram
+    * Key metrics table (AUC-ROC, AUC-PR, Accuracy, etc.)
+    * Threshold sensitivity analysis
+    * AUC-ROC bar chart comparing all 8 levels
+  - Export to CSV and JSON
+
+OUTPUTS GENERATED:
+================================================================================
+
+Data Files:
+  - comparison_table.csv: All 8 evaluation levels, 12 core metrics
+  - comprehensive_eval.json: Full metrics, bootstrap CIs, subgroup analysis
+  - test_predictions_full.csv: Per-image predictions (fold + ensemble)
+  - threshold_sweep.csv: 200-point threshold sweep data
+
+Figures (PNG, 300 DPI):
+  - roc_curves.png: Individual folds + ensemble comparison
+  - pr_curve.png: Precision-Recall curves
+  - confusion_matrices.png: 6 confusion matrices
+  - threshold_analysis.png: Threshold sensitivity (2 panels)
+  - calibration.png: Reliability + histogram + Brier (3 panels)
+  - subgroup_analysis.png: DR grade & dataset source analysis (6 panels)
+  - error_analysis.png: Misclassified cases grid
+  - dashboard.png: Comprehensive 12-panel summary
+
+DATASET INFORMATION:
+================================================================================
+Test Set: 1,021 images
+Sources: APTOS 2019 + IDRiD + Messidor-2
+Columns: image_id, original_dataset, dr_grade, binary_label, preprocessed_path
+Target: Binary classification (No DR vs Any DR)
+
+MODEL ARCHITECTURE:
+================================================================================
+Model: EfficientNet-B3
+Input size: 384×384
+Backbone: timm.create_model('efficientnet_b3', pretrained=False)
+Head:
+  - Linear(in_features → 256)
+  - LayerNorm(256)
+  - GELU()
+  - Dropout(0.4)
+  - Linear(256 → 64)
+  - LayerNorm(64)
+  - GELU()
+  - Dropout(0.3)
+  - Linear(64 → 1)
+
+BOOTSTRAP VALIDATION:
+================================================================================
+- Method: Non-parametric bootstrap resampling
+- Samples: 2,000 iterations per metric
+- Metrics: AUC-ROC, Accuracy, Sensitivity, Specificity, F1-Score
+- Output: 95% confidence intervals for all ensemble methods
+
+USAGE:
+================================================================================
+1. Ensure data is available in the specified directory structure:
+   - splits/train_split.csv, splits/val_split.csv, splits/test_split.csv
+   - models/kfold/best_efficientnet_b3_fold{1-5}.pth
+   - Preprocessed images referenced in CSV files
+
+2. Run the notebook sequentially from top to bottom
+
+3. All outputs saved to: evaluation/kfold_comprehensive/
+
+4. Final summary printed to console with:
+   - Performance metrics for all 8 levels
+   - Fold average vs best ensemble improvement
+   - Error summary (FP/FN counts)
+
+VALIDATION METRICS:
+================================================================================
+Each evaluation level receives:
+✓ AUC-ROC with 95% CI (bootstrap)
+✓ AUC-PR
+✓ Accuracy with 95% CI (bootstrap)
+✓ Balanced Accuracy
+✓ Sensitivity with 95% CI (bootstrap)
+✓ Specificity with 95% CI (bootstrap)
+✓ Precision (PPV)
+✓ Negative Predictive Value (NPV)
+✓ F1-Score with 95% CI (bootstrap)
+✓ Cohen's Kappa
+✓ Matthews Correlation Coefficient
+✓ Brier Score
+✓ Log Loss
+✓ Confusion Matrix (TP/TN/FP/FN)
+
+================================================================================

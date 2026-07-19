@@ -1,0 +1,77 @@
+{
+  "analysis": "Grad-CAM Explainability Analysis",
+  "model_backbone": "EfficientNet-B3",
+  "target_layer": "conv_head (last convolutional layer)",
+  "image_size": 384,
+  "tta_times": 8,
+  "models_analyzed": {
+    "twophase": {
+      "checkpoint": "models/best_binary_model.pth",
+      "threshold": 0.4706,
+      "misclassified_count": 5,
+      "error_types": {
+        "FP": 3,
+        "FN": 2
+      }
+    },
+    "ensemble": {
+      "checkpoint_dir": "models/kfold/",
+      "n_folds": 5,
+      "threshold": 0.5,
+      "misclassified_count": 6,
+      "error_types": {
+        "FP": 3,
+        "FN": 3
+      }
+    }
+  },
+  "attention_overlap_by_grade": [
+    {
+      "dr_grade": 0,
+      "attention_overlap_iou": 0.38095834246189475
+    },
+    {
+      "dr_grade": 1,
+      "attention_overlap_iou": 0.03169381989861073
+    },
+    {
+      "dr_grade": 2,
+      "attention_overlap_iou": 0.18467324411448666
+    },
+    {
+      "dr_grade": 3,
+      "attention_overlap_iou": 0.004078605858361142
+    },
+    {
+      "dr_grade": 4,
+      "attention_overlap_iou": 0.016844262295081968
+    }
+  ],
+  "figures_generated": [
+    "gradcam_attention_statistics.png",
+    "gradcam_comparison_error_aptos_2221cf5c7935.png",
+    "gradcam_comparison_error_aptos_2d07162a13b1.png",
+    "gradcam_comparison_error_aptos_33ffddea8c6e.png",
+    "gradcam_comparison_error_aptos_7ad0c4975890.png",
+    "gradcam_comparison_error_aptos_7ef5ff774a48.png",
+    "gradcam_comparison_error_aptos_dc6fa1b38b83.png",
+    "gradcam_comparison_error_aptos_e1ab92228e60.png",
+    "gradcam_correct_grade0_aptos_3fd45879afe6.png",
+    "gradcam_correct_grade1_aptos_0d310aba6373.png",
+    "gradcam_correct_grade2_aptos_a15470303941.png",
+    "gradcam_correct_grade3_aptos_e4210e7fe587.png",
+    "gradcam_correct_grade4_aptos_c1896142a20a.png",
+    "gradcam_ensemble_error_FN_aptos_33ffddea8c6e.png",
+    "gradcam_ensemble_error_FN_aptos_7ef5ff774a48.png",
+    "gradcam_ensemble_error_FN_aptos_dc6fa1b38b83.png",
+    "gradcam_ensemble_error_FP_aptos_2221cf5c7935.png",
+    "gradcam_ensemble_error_FP_aptos_2d07162a13b1.png",
+    "gradcam_ensemble_error_FP_aptos_7ad0c4975890.png",
+    "gradcam_summary_dashboard.png",
+    "gradcam_twophase_error_FN_aptos_33ffddea8c6e.png",
+    "gradcam_twophase_error_FN_aptos_7ef5ff774a48.png",
+    "gradcam_twophase_error_FP_aptos_2d07162a13b1.png",
+    "gradcam_twophase_error_FP_aptos_7ad0c4975890.png",
+    "gradcam_twophase_error_FP_aptos_e1ab92228e60.png"
+  ]
+}

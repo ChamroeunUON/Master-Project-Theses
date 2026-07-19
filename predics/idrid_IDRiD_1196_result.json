@@ -1,0 +1,26 @@
+{
+  "image_path": "predics/idrid_IDRiD_1196.jpg",
+  "image_name": "idrid_IDRiD_1196.jpg",
+  "timestamp": "2026-03-21T03:01:58.151548",
+  "inference_time_ms": 4571.9,
+  "tta_views": 8,
+  "binary_probability": 0.9985156059265137,
+  "binary_prediction": 1,
+  "binary_label": "DR (Diseased)",
+  "binary_confidence": 0.9985156059265137,
+  "threshold_used": 0.4706,
+  "binary_prob_std": 0.0013125775149092078,
+  "multiclass_prediction": 4,
+  "multiclass_grade": "Proliferative DR",
+  "multiclass_confidence": 0.6435918211936951,
+  "multiclass_probabilities": {
+    "0": 0.023246148601174355,
+    "1": 0.029293464496731758,
+    "2": 0.10336765646934509,
+    "3": 0.20050086081027985,
+    "4": 0.6435918211936951
+  },
+  "severity": "Critical",
+  "clinical_action": "Immediate referral; risk of vision loss",
+  "multiclass_prob_std": 0.056691400706768036
+}

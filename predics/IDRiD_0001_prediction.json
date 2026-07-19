@@ -1,0 +1,55 @@
+{
+  "image_path": "IDRiD/Test/images/IDRiD_0001.jpg",
+  "image_name": "IDRiD_0001.jpg",
+  "timestamp": "2026-03-21T08:35:38.578654",
+  "inference_time_ms": 9336.2,
+  "tta_views": 8,
+  "strategy_A_2phase": {
+    "probability": 0.9946030378341675,
+    "prediction": 1,
+    "label": "DR Detected",
+    "confidence": 0.9946030378341675,
+    "tta_std": 0.0029585494194179773,
+    "threshold": 0.1085
+  },
+  "strategy_B_ensemble": {
+    "probability": 0.7700742840766907,
+    "prediction": 1,
+    "label": "DR Detected",
+    "confidence": 0.7700742840766907,
+    "fold_probabilities": [
+      0.9844573140144348,
+      0.4134191870689392,
+      0.7645245790481567,
+      0.9386371970176697,
+      0.7493331432342529
+    ],
+    "inter_fold_std": 0.20101611453582222,
+    "mean_tta_std": 0.18464499674737453,
+    "threshold": 0.3597
+  },
+  "agreement": true,
+  "agreement_text": "BOTH DETECT DR \u2014 High confidence positive",
+  "validated_metrics": {
+    "twophase_tta": {
+      "AUC-ROC": 0.9992,
+      "Accuracy": 0.9887,
+      "Sensitivity": 0.9962,
+      "Specificity": 0.9815,
+      "F1": 0.9886,
+      "Kappa": 0.9774,
+      "threshold": 0.1085,
+      "dataset": "APTOS 2019 (531 images)"
+    },
+    "ensemble_tta": {
+      "AUC-ROC": 0.9992,
+      "Accuracy": 0.9906,
+      "Sensitivity": 0.9962,
+      "Specificity": 0.9852,
+      "F1": 0.9905,
+      "Kappa": 0.9812,
+      "threshold": 0.3597,
+      "dataset": "APTOS 2019 (531 images)"
+    }
+  }
+}

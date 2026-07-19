@@ -1,0 +1,26 @@
+{
+  "image_path": "IDRiD/Test/images/IDRiD_0001.jpg",
+  "image_name": "IDRiD_0001.jpg",
+  "timestamp": "2026-03-21T02:55:42.843396",
+  "inference_time_ms": 4375.5,
+  "tta_views": 8,
+  "binary_probability": 0.9946030378341675,
+  "binary_prediction": 1,
+  "binary_label": "DR (Diseased)",
+  "binary_confidence": 0.9946030378341675,
+  "threshold_used": 0.4706,
+  "binary_prob_std": 0.0029585494194179773,
+  "multiclass_prediction": 0,
+  "multiclass_grade": "No DR",
+  "multiclass_confidence": 0.397283673286438,
+  "multiclass_probabilities": {
+    "0": 0.397283673286438,
+    "1": 0.1207137331366539,
+    "2": 0.23638814687728882,
+    "3": 0.13689617812633514,
+    "4": 0.10871828347444534
+  },
+  "severity": "Normal",
+  "clinical_action": "Routine screening in 12 months",
+  "multiclass_prob_std": 0.05269308760762215
+}

@@ -1,0 +1,115 @@
+{
+  "dataset": "APTOS 2019",
+  "task": "binary_classification",
+  "model": "efficientnet_b3",
+  "image_size": 384,
+  "test_size": 531,
+  "prevalence": 0.4915254237288136,
+  "optimal_threshold": 0.4706455171108246,
+  "youdens_j": 0.9812260536398468,
+  "metrics": {
+    "auc_roc": {
+      "value": 0.9991627642968639,
+      "ci_lower": 0.9979131583059347,
+      "ci_upper": 0.999957137116852
+    },
+    "auc_pr": {
+      "value": 0.9991555827963398,
+      "ci_lower": 0.9978913185773798,
+      "ci_upper": 0.9999497666668651
+    },
+    "accuracy": {
+      "value": 0.9905838041431262,
+      "ci_lower": 0.9811676082862524,
+      "ci_upper": 0.9981167608286252
+    },
+    "balanced_accuracy": 0.9906130268199234,
+    "sensitivity": {
+      "value": 0.9923371647509579,
+      "ci_lower": 0.9804668351715686,
+      "ci_upper": 1.0
+    },
+    "specificity": {
+      "value": 0.9888888888888889,
+      "ci_lower": 0.975,
+      "ci_upper": 1.0
+    },
+    "precision": 0.9885496183206107,
+    "npv": 0.9925650557620818,
+    "f1_score": {
+      "value": 0.9904397705544933,
+      "ci_lower": 0.9813658802261982,
+      "ci_upper": 0.9980879541108987
+    },
+    "cohen_kappa": 0.9811633995274887,
+    "mcc": 0.981170362280835,
+    "brier_score": 0.00933772839375131,
+    "log_loss": 0.03589549731022194
+  },
+  "confusion_matrix": {
+    "tp": 259,
+    "tn": 267,
+    "fp": 3,
+    "fn": 2
+  },
+  "clinical_operating_points": {
+    "high_sensitivity": {
+      "threshold": 0.8601704835891724,
+      "sensitivity": 0.9731800766283525,
+      "specificity": 0.9962962962962963
+    },
+    "high_specificity": {
+      "threshold": 0.09817390888929367,
+      "sensitivity": 0.9961685823754789,
+      "specificity": 0.9814814814814815
+    }
+  },
+  "subgroup_analysis": [
+    {
+      "grade": "0",
+      "name": "No DR",
+      "n": 270,
+      "binary": 0,
+      "mean_prob": "0.01342825",
+      "acc": 0.9888888888888889,
+      "errors": "3"
+    },
+    {
+      "grade": "1",
+      "name": "Mild",
+      "n": 58,
+      "binary": 1,
+      "mean_prob": "0.9322928",
+      "acc": 0.9655172413793104,
+      "errors": "2"
+    },
+    {
+      "grade": "2",
+      "name": "Moderate",
+      "n": 144,
+      "binary": 1,
+      "mean_prob": "0.99217004",
+      "acc": 1.0,
+      "errors": "0"
+    },
+    {
+      "grade": "3",
+      "name": "Severe",
+      "n": 22,
+      "binary": 1,
+      "mean_prob": "0.9998613",
+      "acc": 1.0,
+      "errors": "0"
+    },
+    {
+      "grade": "4",
+      "name": "Proliferative",
+      "n": 37,
+      "binary": 1,
+      "mean_prob": "0.9971598",
+      "acc": 1.0,
+      "errors": "0"
+    }
+  ],
+  "bootstrap_n": 2000
+}
